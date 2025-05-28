@@ -1,6 +1,5 @@
 class Todo {
   constructor(data, selector) {
-    console.log(data);
     this._data = data;
     this._todoTemplate = document.querySelector(selector);
   }
