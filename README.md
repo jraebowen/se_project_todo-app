@@ -1,14 +1,17 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+This is a simple to-do app that was built by the TripleTen team and refactored by me to leverage classes and modules.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+This app allows users to add new items, set due dates for items, mark items as completed, or delete the item entirely.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+Pre-built by TripleTen team: HMTL, CSS
+Refactored by me:
+
+- JavaScript - refactored files to follow OOP principles which includes creating classes as well as breaking it out into modules
 
 ## Deployment
 
