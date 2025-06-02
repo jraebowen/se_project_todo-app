@@ -27,8 +27,8 @@ class FormValidator {
       this._hideInputError(inputElement);
     }
   }
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
@@ -77,6 +77,7 @@ class FormValidator {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
+    this._formElement.reset();
     this._toggleButtonState();
   }
 }
