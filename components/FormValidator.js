@@ -20,6 +20,7 @@ class FormValidator {
     errorElement.textContent = "";
   };
 
+  //checking whether the input is valid
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -27,6 +28,7 @@ class FormValidator {
       this._hideInputError(inputElement);
     }
   }
+  //checking whether ANY of the input fields is invalid and if so, returning invalid
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
@@ -50,6 +52,9 @@ class FormValidator {
     }
   }
 
+  //grab all of the form events and submit buttons
+  //set an initial button state
+  //set event listeners by look at each input state and checking the validity and toggling the button based on validity
   _setEventListeners() {
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._settings.inputSelector)
@@ -67,12 +72,19 @@ class FormValidator {
       });
     });
   }
+  //call on form load to make it interactive
+  //Prevent default form submission (which would reload the page)
+  //call event listeners
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
     this._setEventListeners();
   }
+  //call after form submission
+  //Hides all validation error messages.
+  //Clears all the form’s input fields.
+  //Resets the submit button’s enabled/disabled state.
   resetValidation() {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);

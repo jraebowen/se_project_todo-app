@@ -23,7 +23,6 @@ class Todo {
   }
 
   getView() {
-    //TODO - make these a config objects
     this._todoElement = this._todoTemplate.content
       .querySelector(".todo")
       .cloneNode(true);
