@@ -2,10 +2,11 @@ import Popup from "./Popup.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 class PopupWithForm extends Popup {
-  constructor({ popupSelector, handleFormSubmit }) {
+  constructor({ popupSelector, handleFormSubmit }, updateTodoTotal) {
     super({ popupSelector });
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popupElement.querySelector(".popup__form");
+    this._updateTodoTotal = updateTodoTotal;
   }
 
   //get data from forms
@@ -28,6 +29,7 @@ class PopupWithForm extends Popup {
     this._form.addEventListener("submit", (event) => {
       event.preventDefault();
       this._handleFormSubmit(this._getInputValues());
+      this._updateTodoTotal(true);
     });
   }
 }

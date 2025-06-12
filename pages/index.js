@@ -3,30 +3,48 @@ import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import TodoCounter from "../components/TodoCounter.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoElement = document.querySelector("#add-todo-popup");
 const addTodoForm = document.forms["add-todo-form"];
+
+//tracks and displays the number of to-do and completed items
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
+function updateTodoCounter(completed) {
+  todoCounter.updateCompleted(completed);
+}
+
+function updateTodoTotal(total) {
+  todoCounter.updateTotal(total);
+}
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
 
-const addTodoPopup = new PopupWithForm({
-  popupSelector: "#add-todo-popup",
-  handleFormSubmit: (values) => {
-    const todoElement = generateTodo(values);
-    section.addItem(todoElement);
-    formValidator.resetValidation();
-    addTodoPopup.close();
-    addTodoForm.reset();
+const addTodoPopup = new PopupWithForm(
+  {
+    popupSelector: "#add-todo-popup",
+    handleFormSubmit: (values) => {
+      const todoElement = generateTodo(values);
+      section.addItem(todoElement);
+      formValidator.resetValidation();
+      addTodoPopup.close();
+      addTodoForm.reset();
+    },
   },
-});
+  updateTodoTotal
+);
 addTodoPopup.setEventListeners();
 
 //Turns a data object into a visual DOM element
 const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template");
+  const todo = new Todo(
+    data,
+    "#todo-template",
+    updateTodoCounter,
+    updateTodoTotal
+  );
   const todoElement = todo.getView();
   return todoElement;
 };
@@ -44,8 +62,7 @@ const section = new Section({
 });
 section.renderItems();
 
-//tracks and displays the number of to-do and completed items
-// const todoCounter = new TodoCounter();
+// const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
 
 const formValidator = new FormValidator(validationConfig, addTodoForm);
 formValidator.enableValidation();
