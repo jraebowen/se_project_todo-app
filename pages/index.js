@@ -8,6 +8,10 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoElement = document.querySelector("#add-todo-popup");
 const addTodoForm = document.forms["add-todo-form"];
 
+addTodoButton.addEventListener("click", () => {
+  addTodoPopup.open();
+});
+
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (values) => {
@@ -40,9 +44,8 @@ const section = new Section({
 });
 section.renderItems();
 
-addTodoButton.addEventListener("click", () => {
-  addTodoPopup.open();
-});
+//tracks and displays the number of to-do and completed items
+// const todoCounter = new TodoCounter();
 
 const formValidator = new FormValidator(validationConfig, addTodoForm);
 formValidator.enableValidation();
