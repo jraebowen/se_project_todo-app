@@ -45,7 +45,7 @@ const addTodoPopup = new PopupWithForm(
       // Create a date object and adjust for timezone
       const date = new Date(dateInput);
       date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-      const cardData = { name, dateInput, id };
+      const cardData = { name, date, id };
       addTodoElement(cardData);
       addTodoPopup.close();
       handleAdd(true);
