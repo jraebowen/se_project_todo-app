@@ -23,21 +23,25 @@ Refactored by me:
 
 ## Project Structure
 
+```bash
 src/
 ├── components/
-│ ├── Todo.js # Todo class for individual tasks
-│ ├── Section.js # Renders and manages task lists
-│ ├── TodoCounter.js # Tracks and updates total/completed counts
-│ ├── Popup.js # Base popup class
-│ ├── PopupWithForm.js # Popup with form submission handling
-│ ├── FormValidator.js # Reusable form validation logic
+│   ├── Todo.js          # Todo class for individual tasks
+│   ├── Section.js       # Renders and manages task lists
+│   ├── TodoCounter.js   # Tracks and updates total/completed counts
+│   ├── Popup.js         # Base popup class
+│   ├── PopupWithForm.js # Popup with form submission handling
+│   ├── FormValidator.js # Reusable form validation logic
 ├── utils/
-│ ├── constants.js # Initial data and validation config
-├── index.html # Entry point
-└── index.js # Main app logic
+│   ├── constants.js     # Initial data and validation config
+├── index.html           # Entry point
+└── index.js             # Main app logic
+```
 
-## Deployment
+## Deployment & Demo
 
 This project is deployed on GitHub Pages:
-
 https://jraebowen.github.io/se_project_todo-app/
+
+Here is demo of the project:
+https://drive.google.com/file/d/1PsOHGujGLOrzKrPuaLcJ-Dn1Ov-Mm0uo/view?usp=drive_link
