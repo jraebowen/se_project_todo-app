@@ -69,9 +69,6 @@ const generateTodo = (data) => {
   return todoElement;
 };
 
-//provides array of todo items to render (initialTodos)
-// gets the DOM element from generateTodo and adds it to the page
-// declares where to insert todo in DOM
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
@@ -80,8 +77,6 @@ const section = new Section({
   containerSelector: ".todos__list",
 });
 section.renderItems();
-
-// const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
 
 const formValidator = new FormValidator(validationConfig, addTodoForm);
 formValidator.enableValidation();
